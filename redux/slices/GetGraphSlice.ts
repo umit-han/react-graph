@@ -11,21 +11,22 @@ const token = '2zcgJnjDyb';
 
 let getGraphConfig: any = {
   headers: {
-    Authorization: `Bearer ${token}`,
+    Token: `${token}`,
   },
 };
 
 export const getGraphData = createAsyncThunk(
   'graph/getGraphData',
 
-  async (data: any, thunkAPI) => {
+  async () => {
     try {
-      const resp = await axios.get(`https://api.wask.co/demo/myaccounts`,
+      const resp = await axios.get(
+        `https://api.wask.co/demo/myaccounts`,
         getGraphConfig
       );
-      return resp.data;
+      return resp.data.accounts;
     } catch (error) {
-      return thunkAPI.rejectWithValue('something went wrong');
+      return 'something went wrong';
     }
   }
 );

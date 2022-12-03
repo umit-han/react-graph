@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import getGraphReducer from './slices/GetGraphSlice';
+import getGraphReducer from './slices/getGraphSlice';
 
 export const store = configureStore({
   reducer: {
